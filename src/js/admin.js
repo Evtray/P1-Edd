@@ -1,27 +1,39 @@
-import { listaUsuario } from "./listas/listaUsuario";
-import { listaLibros } from "./listas/listaLibros";
-import { listaAutores } from "./listas/listaAutores";
+import { listaCircular } from "./listas/listaUsuarios.js";
 
 import { usuario } from "./models/usuario.js";
-import { autor } from "./autor.js";
-import { libro } from "./libro.js";
+
+document.getElementById("btn-users").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    loadFile("usuarios");
+  },
+  false
+);
+
+export var listaUsuarios = new listaCircular();
 
 function loadFile(type) {
   var input, file, fr;
+  input = document.getElementById(`files-${type}`);
 
-  input = document.getElementById("files");
-
-  if (input) {
-    if (input.files.length > 0) {
-      file = input.files[0];
-      fr = new FileReader();
-      fr.onload = recibirArchivo;
-    }
+  if (!input) {
+    alert("No hay documento");
+  } else if (!input.files) {
+    alert("Tu navegador no sirve");
+  } else if (!input.files[0]) {
+    alert("Selecciona algun archivo");
+  } else {
+    file = input.files[0];
+    fr = new FileReader();
+    fr.onload = recibirArchivo;
+    fr.readAsText(file);
   }
 }
 
 function recibirArchivo(archivo, type) {
   let lineas = archivo.target.result;
+
   var lista = JSON.parse(lineas);
   switch (type) {
     case "usuarios":
@@ -38,6 +50,8 @@ function recibirArchivo(archivo, type) {
 }
 
 function crearUsuarios(archivo) {
+  console.log("; ");
+
   for (let x of archivo) {
     var userNew = new usuario(
       x.dpi,

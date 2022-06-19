@@ -35,11 +35,12 @@
                     <div class="p-4">
                         <h1 class="mb-4"> <i class="fas fa-users text-gray-600"></i> Usuarios</h1>
                         <label for="files" class="text-gray-600">Upload a Json formatted file:</label>
-                        <input type="file" id="files" class="form-control" accept=".Json" />
+                        <input type="file" id="files-usuarios" class="form-control" accept=".Json" />
                     </div>
 
                     <div class="p-4 bg-gray-100 text-right">
-                        <button
+                        <button 
+                            id="btn-users"
                             class="py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Cargar
                         </button>
@@ -49,11 +50,11 @@
                     <div class="p-4">
                         <h1 class="mb-4"> <i class="fas fa-book text-gray-600"></i> Libros</h1>
                         <label for="files" class="text-gray-600">Upload a Json formatted file:</label>
-                        <input type="file" id="files" class="form-control" accept=".Json" />
+                        <input type="file" id="files-libros" class="form-control" accept=".Json" />
                     </div>
 
                     <div class="p-4 bg-gray-100 text-right">
-                        <button
+                        <button onclick="loadFile('libros')"
                             class="py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Cargar
                         </button>
@@ -63,11 +64,12 @@
                     <div class="p-4">
                         <h1 class="mb-4"> <i class="fas fa-users text-gray-600"></i> Autores</h1>
                         <label for="files" class="text-gray-600">Upload a Json formatted file:</label>
-                        <input type="file" id="files" class="form-control" accept=".Json" />
+                        <input type="file" id="files-autores" class="form-control" accept=".Json" />
                     </div>
 
                     <div class="p-4 bg-gray-100 text-right">
-                        <button
+                        <button 
+                            onclick="loadFile('autores')"
                             class="py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Cargar
                         </button>
@@ -85,7 +87,7 @@
         </div>
     </div>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../js/admin.js"></script>
+    <script type="module" src="/src/js/admin.js"></script>
 </body>
 
 </html>
