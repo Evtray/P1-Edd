@@ -1,5 +1,4 @@
 import { listaCircular } from "./listas/listaUsuarios.js";
-
 import { usuario } from "./models/usuario.js";
 
 document.getElementById("btn-users").addEventListener(
