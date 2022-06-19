@@ -90,7 +90,7 @@ export class listaCircular {
     var nodos = "";
     var numnodo = 0;
     for (let index = 0; index < this.contador; index++) {
-      nodos += "N" + numnodo + '[label="' + temporal.usuario.nombre + '" ];\n';
+      nodos += "N" + numnodo + '[label="' + temporal.usuario.nombre_completo + '" ];\n';
       if (temporal.siguiente != this.cabeza) {
         var auxnum = numnodo + 1;
         conexiones +=

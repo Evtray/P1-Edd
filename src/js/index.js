@@ -20,4 +20,6 @@ if (users) {
     listaUsuarios.insertar(userNew);
   }
 }
-console.log(users)
+listaUsuarios.graficarDerecha();
+
+console.log(listaUsuarios);
