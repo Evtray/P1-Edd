@@ -12,8 +12,9 @@ document.getElementById("btn-users").addEventListener(
 );
 
 export var listaUsuarios = new listaCircular();
-
+var types
 function loadFile(type) {
+  types = type
   var input, file, fr;
   input = document.getElementById(`files-${type}`);
 
@@ -31,11 +32,11 @@ function loadFile(type) {
   }
 }
 
-function recibirArchivo(archivo, type) {
+function recibirArchivo(archivo) {
   let lineas = archivo.target.result;
-
+  
   var lista = JSON.parse(lineas);
-  switch (type) {
+  switch (types) {
     case "usuarios":
       crearUsuarios(lista);
       break;
