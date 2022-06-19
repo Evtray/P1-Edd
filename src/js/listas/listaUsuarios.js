@@ -52,14 +52,14 @@ export class usuarios {
 
   graficarDerecha() {
     var codigodot =
-      'digraph G{size="3";\nlabel=" Inicio a fin ";\nnode [shape=doublecircle];N0;\nnode [shape=circle];\n';
+      'digraph G{size="85";\nlabel=" Inicio a fin ";\nnode [shape=doublecircle];N0;\nnode [shape=circle];\n';
     var temporal = this.cabeza;
     var conexiones = "";
     var nodos = "";
     var numnodo = 0;
     for (let index = 0; index < this.contador; index++) {
-      console.log(temporal.usuario.nombre);
-      nodos += "N" + numnodo + '[label="' + temporal.usuario.nombre + '" ];\n';
+      console.log(temporal, 'temporal');
+      nodos += "N" + numnodo + '[label="' + temporal.usuario.nombre_completo + '" ];\n';
       if (temporal.siguiente != this.cabeza) {
         var auxnum = numnodo + 1;
         conexiones +=
@@ -77,7 +77,7 @@ export class usuarios {
     if (document.getElementById("lectors")) {
       d3.select("#lectors")
         .graphviz()
-        .width(300)
+        .width(1200)
         .height(300)
         .renderDot(codigodot);
     }
@@ -108,7 +108,7 @@ export class usuarios {
     if (document.getElementById("table-users")) {
       d3.select("#table-users")
         .graphviz()
-        .width(300)
+        .width(1200)
         .height(300)
         .renderDot(codigodot);
     }

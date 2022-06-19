@@ -1,5 +1,4 @@
 import { listaCircular } from "./listas/listaUsuarios.js";
-
 import { usuario } from "./models/usuario.js";
 
 export var listaUsuarios = new listaCircular();
@@ -10,8 +9,8 @@ if (users) {
   for (let x of users) {
     var userNew = new usuario(
       x.dpi,
-      x.nombre,
-      x.usuario,
+      x.nombre_completo,
+      x.nombre_usuario,
       x.correo,
       x.rol,
       x.contrasenia,
