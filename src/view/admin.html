@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2afef9cfdb.js" crossorigin="anonymous"></script>
+
+    <title>Admin</title>
+</head>
+
+<body>
+    <div class="">
+        <div class="shadow">
+            <div class="max-w-7xl mx-auto flex space-x-8 p-4 items-center">
+                <a href="#">
+                    <span class="sr-only">Biblioteca</span>
+                    <img alt="Workflow" class="h-8 w-auto sm:h-10"
+                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg">
+                </a>
+                <a class="font-medium text-gray-500 hover:text-gray-900">Administración</a>
+
+                <a class="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer">Edwin</a>
+                <a class="font-medium text-red-600 hover:text-red-500 justify-self-end cursor-pointer">Logout </a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="my-6">
+                <h1 class="text-2xl">Cargas masivas</h1>
+            </div>
+            <div class="flex space-x-8 my-6">
+                <div class="w-80 mb-4 shadow overflow-hidden rounded-md">
+                    <div class="p-4">
+                        <h1 class="mb-4"> <i class="fas fa-users text-gray-600"></i> Usuarios</h1>
+                        <label for="files" class="text-gray-600">Upload a Json formatted file:</label>
+                        <input type="file" id="files" class="form-control" accept=".Json" />
+                    </div>
+
+                    <div class="p-4 bg-gray-100 text-right">
+                        <button
+                            class="py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Cargar
+                        </button>
+                    </div>
+                </div>
+                <div class="w-80 mb-4 shadow overflow-hidden rounded-md">
+                    <div class="p-4">
+                        <h1 class="mb-4"> <i class="fas fa-book text-gray-600"></i> Libros</h1>
+                        <label for="files" class="text-gray-600">Upload a Json formatted file:</label>
+                        <input type="file" id="files" class="form-control" accept=".Json" />
+                    </div>
+
+                    <div class="p-4 bg-gray-100 text-right">
+                        <button
+                            class="py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Cargar
+                        </button>
+                    </div>
+                </div>
+                <div class="w-80 mb-4 shadow overflow-hidden rounded-md">
+                    <div class="p-4">
+                        <h1 class="mb-4"> <i class="fas fa-users text-gray-600"></i> Autores</h1>
+                        <label for="files" class="text-gray-600">Upload a Json formatted file:</label>
+                        <input type="file" id="files" class="form-control" accept=".Json" />
+                    </div>
+
+                    <div class="p-4 bg-gray-100 text-right">
+                        <button
+                            class="py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Cargar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-40">
+                <div class="my-6">
+                    <h1 class="text-2xl">Cola de espera</h1>
+                </div>
+                <div class="shadow rounded-md overflow-hidden w-80 p-4">
+                    colitas
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>
