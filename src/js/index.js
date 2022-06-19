@@ -1,3 +1,9 @@
+import { listaCircular } from "./listas/listaUsuarios.js";
+
+import { usuario } from "./models/usuario.js";
+
+export var listaUsuarios = new listaCircular();
+
 var users = JSON.parse(window.localStorage.getItem("users"));
 
 if (users) {
@@ -14,3 +20,4 @@ if (users) {
     listaUsuarios.insertar(userNew);
   }
 }
+console.log(users)
