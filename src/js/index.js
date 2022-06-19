@@ -1,7 +1,7 @@
-import { listaCircular } from "./listas/listaUsuarios.js";
+import { usuarios } from "./listas/listaUsuarios.js";
 import { usuario } from "./models/usuario.js";
 
-export var listaUsuarios = new listaCircular();
+export var listaUsuarios = new usuarios();
 
 var users = JSON.parse(window.localStorage.getItem("users"));
 
