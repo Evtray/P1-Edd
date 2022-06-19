@@ -3,6 +3,7 @@ export class libro {
     isbn,
     nombre_autor,
     nombre_libro,
+    cantidad,
     fila,
     columna,
     paginas,
@@ -11,7 +12,7 @@ export class libro {
     this.isbn = isbn;
     this.nombre_autor = nombre_autor;
     this.nombre_libro = nombre_libro;
-    this.cantidad = correo;
+    this.cantidad = cantidad;
     this.fila = fila;
     this.columna = columna;
     this.paginas = paginas;

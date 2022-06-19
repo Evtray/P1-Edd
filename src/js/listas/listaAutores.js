@@ -5,7 +5,7 @@ class nodo {
     }
   }
   
-  export class listaAutores {
+  export class autores {
     constructor() {
       this.cabeza = null;
       this.contador = 0;

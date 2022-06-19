@@ -5,7 +5,7 @@ class nodo {
   }
 }
 
-export class listaCircular {
+export class usuarios {
   constructor() {
     this.cabeza = null;
     this.contador = 0;
@@ -114,8 +114,3 @@ export class listaCircular {
     }
   }
 }
-// var lista = new listaCircular();
-// lista.insertar("JAJA")
-// lista.insertar("Lolito")
-// lista.insertar("Juanito")
-// lista.recorrer()

@@ -1,6 +1,10 @@
-import { listaCircular } from "./listas/listaUsuarios.js";
+import { usuarios } from "./listas/listaUsuarios.js";
+import { libros } from "./listas/listaLibros.js";
+import { autores } from "./listas/listaAutores.js";
 
 import { usuario } from "./models/usuario.js";
+import { libro } from "./models/libro.js";
+import { autor } from "./models/autor.js";
 
 document.getElementById("btn-users").addEventListener(
   "click",
@@ -11,13 +15,35 @@ document.getElementById("btn-users").addEventListener(
   false
 );
 
-export var listaUsuarios = new listaCircular();
-var types
+document.getElementById("btn-libros").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    loadFile("libros");
+  },
+  false
+);
+
+document.getElementById("btn-autores").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    loadFile("autores");
+  },
+  false
+);
+
+export var listaUsuarios = new usuarios();
+
+var listaLibros = new libros();
+var listaAutores = new autores();
+
+var types;
 function loadFile(type) {
-  types = type
+  types = type;
   var input, file, fr;
   input = document.getElementById(`files-${type}`);
-
+  console.log(type)
   if (!input) {
     alert("No hay documento");
   } else if (!input.files) {
@@ -34,7 +60,7 @@ function loadFile(type) {
 
 function recibirArchivo(archivo) {
   let lineas = archivo.target.result;
-  
+
   var lista = JSON.parse(lineas);
   switch (types) {
     case "usuarios":
@@ -51,8 +77,6 @@ function recibirArchivo(archivo) {
 }
 
 function crearUsuarios(archivo) {
-  console.log("; ");
-
   for (let x of archivo) {
     var userNew = new usuario(
       x.dpi,
@@ -67,3 +91,36 @@ function crearUsuarios(archivo) {
   }
   listaUsuarios.recorrer();
 }
+
+function crearLibros(archivo) {
+  for (let x of archivo) {
+    var nuevoLibro = new libro(
+      x.isbn,
+      x.nombre_autor,
+      x.nombre_libro,
+      x.cantidad,
+      x.fila,
+      x.columna,
+      x.paginas,
+      x.categoria
+    );
+    listaLibros.insertar(nuevoLibro);
+  }
+  listaLibros.recorrer();
+}
+
+function crearAutores(archivo) {
+  for (let x of archivo) {
+    var nuevoAutor = new autor(
+      x.dpi,
+      x.nombre_autor,
+      x.correo,
+      x.telefono,
+      x.direccion,
+      x.biografia,
+    );
+    listaAutores.insertar(nuevoAutor);
+  }
+  listaAutores.recorrer();
+}
+
