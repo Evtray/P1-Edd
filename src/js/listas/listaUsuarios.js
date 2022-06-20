@@ -78,78 +78,10 @@ export class usuarios {
     users += "]";
     window.localStorage.setItem("users", users);
   }
-
-  graficarDerecha() {
-    var codigodot =
-      'digraph G{size="85";\nlabel=" Inicio a fin ";\nnode [shape=doublecircle];N0;\nnode [shape=circle];\n';
-    var temporal = this.cabeza;
-    var conexiones = "";
-    var nodos = "";
-    var numnodo = 0;
-    for (let index = 0; index < this.contador; index++) {
-      console.log(temporal, "temporal");
-      nodos +=
-        "N" +
-        numnodo +
-        '[label="' +
-        temporal.usuario.nombre_completo +
-        '" ];\n';
-      if (temporal.siguiente != this.cabeza) {
-        var auxnum = numnodo + 1;
-        conexiones +=
-          "N" + numnodo + " -> N" + auxnum + '[label="=>" dir=both];\n';
-      } else {
-        var auxnum = numnodo + 1;
-        conexiones += "N" + numnodo + " -> N" + 0 + "[dir=both];\n";
-      }
-      temporal = temporal.siguiente;
-      numnodo++;
-    }
-    codigodot += nodos + "\n";
-    codigodot += "{rank=same;\n" + conexiones + "\n}\n}";
-    console.log(codigodot);
-    if (document.getElementById("lectors")) {
-      d3.select("#lectors")
-        .graphviz()
-        .width(1200)
-        .height(300)
-        .renderDot(codigodot);
-    }
+  ordenarPorLibros(){
+    
   }
-  graficarAdmin() {
-    var codigodot =
-      'digraph G{size="3";\nlabel=" Inicio a fin ";\nnode [shape=doublecircle];N0;\nnode [shape=circle];\n';
-    var temporal = this.cabeza;
-    var conexiones = "";
-    var nodos = "";
-    var numnodo = 0;
-    for (let index = 0; index < this.contador; index++) {
-      nodos +=
-        "N" +
-        numnodo +
-        '[label="' +
-        temporal.usuario.nombre_completo +
-        '" ];\n';
-      if (temporal.siguiente != this.cabeza) {
-        var auxnum = numnodo + 1;
-        conexiones +=
-          "N" + numnodo + " -> N" + auxnum + '[label="=>" dir=both];\n';
-      } else {
-        var auxnum = numnodo + 1;
-        conexiones += "N" + numnodo + " -> N" + 0 + "[dir=both];\n";
-      }
-      temporal = temporal.siguiente;
-      numnodo++;
-    }
-    codigodot += nodos + "\n";
-    codigodot += "{rank=same;\n" + conexiones + "\n}\n}";
-    console.log(codigodot);
-    if (document.getElementById("table-users")) {
-      d3.select("#table-users")
-        .graphviz()
-        .width(1200)
-        .height(300)
-        .renderDot(codigodot);
-    }
+  topLibros() {
+
   }
 }
