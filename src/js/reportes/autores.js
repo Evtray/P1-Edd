@@ -1,8 +1,8 @@
-import { autores } from "../listas/listaAutores.js";
 import { autor } from "../models/autor.js";
-import { abb } from "../arboles/arbolAutores.js";
+import { autores } from "../listas/listaAutores.js";
+import { reporteArbol } from "../arboles/reporteAutores.js";
 
-var arbolAutores = new abb();
+var reporteAutores = new reporteArbol();
 
 var librosStorage = JSON.parse(window.localStorage.getItem("autores"));
 
@@ -17,8 +17,8 @@ if (librosStorage) {
       x.biografia
     );
     console.log(nuevoAutor);
-    arbolAutores.insertar(nuevoAutor);
+    reporteAutores.insertar(nuevoAutor);
   }
 }
 
-arbolAutores.generarDot();
+reporteAutores.generarGrafico();
