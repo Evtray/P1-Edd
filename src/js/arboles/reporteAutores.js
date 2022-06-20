@@ -26,11 +26,11 @@ export class reporteArbol {
             var b = String(nuevo_autor.autor.nombre_autor);
             var x = a.toLocaleLowerCase();
             var y = b.toLocaleLowerCase();
-            if (x > y) {
-                raiz_actual.izq = this.nuevoNodo(raiz_actual.izq, nuevo_autor);
-            } else if (x < y) {
+            if (x < y) {
                 raiz_actual.der = this.nuevoNodo(raiz_actual.der, nuevo_autor);
-            }
+            } else if (x > y) {
+                raiz_actual.izq = this.nuevoNodo(raiz_actual.izq, nuevo_autor);
+            } 
         } else { raiz_actual = nuevo_autor }
         return raiz_actual;
     }
@@ -43,7 +43,7 @@ export class reporteArbol {
         c += "\n}"
         console.log(c)
         d3.select('#reporte-autores').graphviz()
-            .width(1080)
+            .width(1900)
             .height(1020)
             .renderDot(c)
     }
@@ -52,8 +52,8 @@ export class reporteArbol {
         let n = ""
         if (raiz_actual) {
             n += "n" + raiz_actual.autor.dpi + "[label=\"" + raiz_actual.autor.nombre_autor + "\"]\n"
-            n += this.cadena(raiz_actual.izq)
             n += this.cadena(raiz_actual.der)
+            n += this.cadena(raiz_actual.izq)
         }
         return n
     }
@@ -61,13 +61,13 @@ export class reporteArbol {
     enlazar(raiz_actual) {
         let c = ""
         if (raiz_actual) {
-            c += this.enlazar(raiz_actual.izq)
             c += this.enlazar(raiz_actual.der)
-            if (raiz_actual.izq) {
-                c += "n" + raiz_actual.autor.dpi + "-> n" + raiz_actual.izq.autor.dpi + "\n"
-            }
+            c += this.enlazar(raiz_actual.izq)
             if (raiz_actual.der) {
                 c += "n" + raiz_actual.autor.dpi + "-> n" + raiz_actual.der.autor.dpi + "\n"
+            }
+            if (raiz_actual.izq) {
+                c += "n" + raiz_actual.autor.dpi + "-> n" + raiz_actual.izq.autor.dpi + "\n"
             }
         }
         return c
