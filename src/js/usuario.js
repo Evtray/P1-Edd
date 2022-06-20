@@ -15,7 +15,7 @@ document.getElementById("btn-descendente").addEventListener(
   "click",
   function (event) {
     event.preventDefault();
-    listaLibros.ordenarInAlfa();
+    listaLibros.ordenarDescendente();
     getLibros();
   },
   false
@@ -24,7 +24,7 @@ document.getElementById("btn-ascendente").addEventListener(
   "click",
   function (event) {
     event.preventDefault();
-    listaLibros.ordenarAlfa();
+    listaLibros.ordenarAscendente();
     getLibros();
   },
   false

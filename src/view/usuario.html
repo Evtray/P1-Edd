@@ -53,6 +53,21 @@
                     class="group relative w-64 flex justify-center mr-4 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Ordenar descendente</button>
             </div>
+            <div class="mt-4">
+                for (let i = 0; i < this.contador + 1; i++) {<br>
+                    <span class="mr-4"></span> var actual = this.cabeza;<br>
+                    <span class="mr-4"></span>for (let j = 0; j < this.contador; j++) {<br>
+                        <span class="mr-8"></span>if (actual.siguiente != null &&actual.libro.nombre_libro > actual.siguiente.libro.nombre_libro ) {<br>
+                        <span class="mr-12"></span>var temp1 = actual.libro;<br>
+                        <span class="mr-12"></span>var temp2 = actual.siguiente.libro;<br>
+                        <span class="mr-12"></span>actual.libro = temp2;<br>
+                        <span class="mr-12"></span>actual.siguiente.libro = temp1;<br>
+                        <span class="mr-8"></span>} else {<br>
+                        <span class="mr-12"></span>actual = actual.siguiente;<br>
+                        <span class="mr-8"></span>}<br>
+                        <span class="mr-4"></span> }<br>
+                        }<br>
+            </div>
             <div id="content-algoritmo" class="">
             </div>
             <div id="content-libros" class="grid grid-cols-4 space-r-6">

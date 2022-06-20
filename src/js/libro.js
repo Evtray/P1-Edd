@@ -107,6 +107,9 @@ if (users) {
     listaUsuarios.insertar(userNew);
   }
 }
+console.log(listaUsuarios.cabeza.usuario);
+listaUsuarios.ordenarPorLibros();
+console.log(listaUsuarios.cabeza.usuario);
 
 document.getElementById("btn-comprar").addEventListener(
   "click",
@@ -169,7 +172,6 @@ function comprar() {
 
     listaLibros.recorrer();
 
-    
     var actualUsuario = listaUsuarios.cabeza;
     for (let index = 0; index < listaUsuarios.contador; index++) {
       actualUsuario = actualUsuario.siguiente;

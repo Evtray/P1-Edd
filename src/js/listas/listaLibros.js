@@ -74,44 +74,40 @@ export class libros {
     }
     return cantidad;
   }
-  ordenarAlfa() {
+  ordenarAscendente() {
     for (let i = 0; i < this.contador + 1; i++) {
-      var actualNuevo = this.cabeza;
+      var actual = this.cabeza;
       for (let j = 0; j < this.contador; j++) {
-        console.log(
-          actualNuevo.libro.nombre_libro,
-          actualNuevo.siguiente.libro.nombre_libro
-        );
         if (
-          actualNuevo.siguiente != null &&
-          actualNuevo.libro.nombre_libro >
-            actualNuevo.siguiente.libro.nombre_libro
+          actual.siguiente != null &&
+          actual.libro.nombre_libro >
+            actual.siguiente.libro.nombre_libro
         ) {
-          var nodoJ = actualNuevo.libro;
-          var nodoJ2 = actualNuevo.siguiente.libro;
-          actualNuevo.libro = nodoJ2;
-          actualNuevo.siguiente.libro = nodoJ;
+          var temp1 = actual.libro;
+          var temp2 = actual.siguiente.libro;
+          actual.libro = temp2;
+          actual.siguiente.libro = temp1;
         } else {
-          actualNuevo = actualNuevo.siguiente;
+          actual = actual.siguiente;
         }
       }
     }
   }
-  ordenarInAlfa() {
+  ordenarDescendente() {
     for (let i = 0; i < this.contador + 1; i++) {
-      var actualNuevo = this.cabeza;
+      var actual = this.cabeza;
       for (let j = 0; j < this.contador; j++) {
         if (
-          actualNuevo.siguiente != null &&
-          actualNuevo.libro.nombre_libro <
-            actualNuevo.siguiente.libro.nombre_libro
+          actual.siguiente != null &&
+          actual.libro.nombre_libro <
+            actual.siguiente.libro.nombre_libro
         ) {
-          var nodoJ = actualNuevo.libro;
-          var nodoJ2 = actualNuevo.siguiente.libro;
-          actualNuevo.libro = nodoJ2;
-          actualNuevo.siguiente.libro = nodoJ;
+          var temp1 = actual.libro;
+          var temp2 = actual.siguiente.libro;
+          actual.libro = temp2;
+          actual.siguiente.libro = temp1;
         } else {
-          actualNuevo = actualNuevo.siguiente;
+          actual = actual.siguiente;
         }
       }
     }
