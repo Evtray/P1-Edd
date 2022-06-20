@@ -49,4 +49,57 @@ export class libros {
     libros += "]";
     window.localStorage.setItem("libros", libros);
   }
+
+  cola() {
+    let libros = "[";
+    var actual = this.cabeza;
+    for (let index = 0; index < this.contador; index++) {
+      actual = actual.siguiente;
+      libros += JSON.stringify(actual.libro);
+      if (index != this.contador - 1) {
+        libros += ",";
+      }
+    }
+    libros += "]";
+    console.log(libros);
+
+    window.localStorage.setItem("cola", libros);
+  }
+  ordenarAlfa() {
+    for (let i = 0; i < this.contador + 1; i++) {
+      var actualNuevo = this.cabeza;
+      for (let j = 0; j < this.contador; j++) {
+        if (
+          actualNuevo.siguiente != null &&
+          actualNuevo.libro.nombre_libro >
+            actualNuevo.siguiente.libro.nombre_libro
+        ) {
+          var nodoJ = actualNuevo.libro;
+          var nodoJ2 = actualNuevo.siguiente.libro;
+          actualNuevo.libro = nodoJ2;
+          actualNuevo.siguiente.libro = nodoJ;
+        }
+        actualNuevo = actualNuevo.siguiente;
+        console.log(actualNuevo);
+      }
+    }
+  }
+  ordenarInAlfa() {
+    for (let i = 0; i < this.contador + 1; i++) {
+      var actualNuevo = this.cabeza;
+      for (let j = 0; j < this.contador; j++) {
+        if (
+          actualNuevo.siguiente != null &&
+          actualNuevo.libro.nombre_libro <
+            actualNuevo.siguiente.libro.nombre_libro
+        ) {
+          var nodoJ = actualNuevo.libro;
+          var nodoJ2 = actualNuevo.siguiente.libro;
+          actualNuevo.libro = nodoJ2;
+          actualNuevo.siguiente.libro = nodoJ;
+        }
+        actualNuevo = actualNuevo.siguiente;
+      }
+    }
+  }
 }

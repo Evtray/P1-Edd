@@ -15,6 +15,25 @@ document.getElementById("btn-users").addEventListener(
   false
 );
 
+document.getElementById("btn-logout").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    logout();
+  },
+  false
+);
+
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "/index.html";
+}
+
+var user = JSON.parse(window.localStorage.getItem("user"));
+
+var labelUsuario = document.getElementById("label-usuario");
+labelUsuario.innerText = user.nombre_completo;
+
 document.getElementById("btn-libros").addEventListener(
   "click",
   function (event) {
@@ -37,13 +56,35 @@ export var listaUsuarios = new usuarios();
 
 var listaLibros = new libros();
 var listaAutores = new autores();
+var listaCola = new autores();
+
+var listaCola = new libros();
+
+var librosStorage = JSON.parse(window.localStorage.getItem("cola"));
+
+if (librosStorage) {
+  for (let x of librosStorage) {
+    var nuevoLibro = new libro(
+      x.isbn,
+      x.nombre_autor,
+      x.nombre_libro,
+      x.cantidad,
+      x.fila,
+      x.columna,
+      x.paginas,
+      x.categoria
+    );
+    listaCola.insertar(nuevoLibro);
+  }
+}
 
 var types;
 function loadFile(type) {
+  console.log();
   types = type;
   var input, file, fr;
   input = document.getElementById(`files-${type}`);
-  console.log(type)
+  console.log(type);
   if (!input) {
     alert("No hay documento");
   } else if (!input.files) {
@@ -74,6 +115,7 @@ function recibirArchivo(archivo) {
     default:
       break;
   }
+  alert("Archivo subido!");
 }
 
 function crearUsuarios(archivo) {
@@ -117,10 +159,35 @@ function crearAutores(archivo) {
       x.correo,
       x.telefono,
       x.direccion,
-      x.biografia,
+      x.biografia
     );
     listaAutores.insertar(nuevoAutor);
   }
   listaAutores.recorrer();
 }
 
+var actual = listaCola.cabeza;
+var stringLibros = "";
+var contentLibros = document.getElementById("content-libros");
+
+for (let index = 0; index < listaCola.contador; index++) {
+  actual = actual.siguiente;
+
+  stringLibros += `
+    <div class="shadow cursor-pointer rounded-md overflow-hidden h-60 w-60 my-4">
+    <div class=" bg-gray-50">
+        <img class="h-36 w-full"
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+            alt="">
+    </div>
+    <div class="p-2">
+        <h1>${actual.libro.nombre_libro}</h1>
+        <span class="text-sm text-gray-600">Autor: ${actual.libro.nombre_autor}</span><br>
+        <span class="text-gray-600">Cantidad: ${actual.libro.cantidad}</span>
+        <div class="pt-2">
+        </div>
+    </div>
+    </div>
+  `;
+}
+contentLibros.innerHTML = stringLibros;

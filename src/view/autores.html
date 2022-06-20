@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libro</title>
+    <script src="https://kit.fontawesome.com/2afef9cfdb.js" crossorigin="anonymous"></script>
+
+    <title>Usuario</title>
 </head>
 
 <body>
@@ -30,36 +32,31 @@
                 <a href="/src/view/autores.html"
                     class="font-medium text-indigo-600 hover:text-indigo-600 justify-self-end cursor-pointer">Autores
                 </a>
+
                 <button id="btn-logout"
                     class="font-medium text-red-600 hover:text-red-500 justify-self-end cursor-pointer">Logout </button>
             </div>
         </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-8">
-        <div class="pt-4">
-            <img class="h-40 w-64"
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-                alt="">
-        </div>
-        <div class="mt-4">
-            <h1 class="text-lg font-bold" id="libro-nombre">Libro</h1>
-            <span class="text-gray-600" id="libro-autor">Autor</span><br>
-            <span class="text-gray-600" id="libro-cantidad">Catnidad</span>
-            <div class="mt-4">
-                <span class="text-gray-600">Cantidad</span><br>
-                <input type="number" id="input-cantidad"
-                    class="border border-40 rounded-md w-64 px-3 py-2 focus:outline-none">
-                <div class="w-64 mt-4">
-                    <button id="btn-comprar"
-                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Comprar</button>
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="my-6">
+                <h1 class="text-xl font-sembibold">Autores</h1>
+            </div>
+            <div class="mb-2">
+                <span>Buscar</span>: <br>
+                <div class="flex">
+                    <input type="text" id="input-search"
+                        class="border border-40 rounded-md w-64 px-3 py-2 focus:outline-none mr-4">
+                    <button id="btn-search"
+                        class="group relative w-24 flex justify-center mr-4 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Buscar</button>
                 </div>
             </div>
-
+            <div id="content-autores" class="grid grid-cols-4 space-r-6">
+            </div>
         </div>
     </div>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="../js/libro.js"></script>
+    <script type="module" src="../js/autores.js"></script>
 </body>
 
 </html>

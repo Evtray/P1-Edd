@@ -36,12 +36,41 @@ export class usuarios {
     }
   }
 
-  recorrer() {
+  recorrer(dpi = "") {
     let users = "[";
     var actual = this.cabeza;
     for (let index = 0; index < this.contador; index++) {
-      actual = actual.siguiente;
-      users += JSON.stringify(actual.usuario);
+      var actual = actual.siguiente;
+
+      let libros = "[";
+      if (actual.usuario.listaLibros != "[]") {
+        var actualLibro = actual.usuario.listaLibros.cabeza;
+        for (
+          let indexx = 0;
+          indexx < actual.usuario.listaLibros.contador;
+          indexx++
+        ) {
+          actualLibro = actualLibro.siguiente;
+          libros += JSON.stringify(actualLibro.libro);
+          if (indexx != actual.usuario.listaLibros.contador - 1) {
+            libros += ",";
+          }
+        }
+      }
+      libros += "]";
+      if (dpi == actual.usuario.dpi) {
+        window.localStorage.setItem("user-libros", libros);
+      }
+      users += JSON.stringify({
+        dpi: actual.usuario.dpi,
+        nombre_completo: actual.usuario.nombre_completo,
+        nombre_usuario: actual.usuario.nombre_usuario,
+        correo: actual.usuario.correo,
+        rol: actual.usuario.rol,
+        contrasenia: actual.usuario.contrasenia,
+        telefono: actual.usuario.telefono,
+        listaLibros: libros,
+      });
       if (index != this.contador - 1) {
         users += ",";
       }
@@ -58,8 +87,13 @@ export class usuarios {
     var nodos = "";
     var numnodo = 0;
     for (let index = 0; index < this.contador; index++) {
-      console.log(temporal, 'temporal');
-      nodos += "N" + numnodo + '[label="' + temporal.usuario.nombre_completo + '" ];\n';
+      console.log(temporal, "temporal");
+      nodos +=
+        "N" +
+        numnodo +
+        '[label="' +
+        temporal.usuario.nombre_completo +
+        '" ];\n';
       if (temporal.siguiente != this.cabeza) {
         var auxnum = numnodo + 1;
         conexiones +=
@@ -90,7 +124,12 @@ export class usuarios {
     var nodos = "";
     var numnodo = 0;
     for (let index = 0; index < this.contador; index++) {
-      nodos += "N" + numnodo + '[label="' + temporal.usuario.nombre_completo + '" ];\n';
+      nodos +=
+        "N" +
+        numnodo +
+        '[label="' +
+        temporal.usuario.nombre_completo +
+        '" ];\n';
       if (temporal.siguiente != this.cabeza) {
         var auxnum = numnodo + 1;
         conexiones +=

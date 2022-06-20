@@ -1,3 +1,5 @@
+import { librosUsuario } from "../listas/listaLibrosUsuario.js";
+
 export class usuario {
   constructor(
     dpi,
@@ -6,7 +8,8 @@ export class usuario {
     correo,
     rol,
     contra,
-    telefono
+    telefono,
+    listaLibros = "[]"
   ) {
     this.dpi = dpi;
     this.nombre_completo = nombre_completo;
@@ -15,6 +18,6 @@ export class usuario {
     this.rol = rol;
     this.contrasenia = contra;
     this.telefono = telefono;
-    this.listaLibros = null;
+    this.listaLibros = listaLibros;
   }
 }

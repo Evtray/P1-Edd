@@ -14,39 +14,34 @@
     <div class="">
         <div class="shadow">
             <div class="max-w-7xl mx-auto flex space-x-8 p-4 items-center">
-                <a href="#">
+                <a href="/index.html">
                     <span class="sr-only">Biblioteca</span>
                     <img alt="Workflow" class="h-8 w-auto sm:h-10"
                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg">
                 </a>
-                <a href="/index.html#libros" class="font-medium text-gray-500 hover:text-gray-900">Libros</a>
+                <a class="font-medium text-gray-500 hover:text-gray-900">Usuario</a>
 
-                <a href="/index.html#autores" class="font-medium text-gray-500 hover:text-gray-900">Autores</a>
+                <a id="label-usuario"
+                    class="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer">Dereck</a>
+                <a href="/src/view/usuario.html"
+                    class="font-medium text-indigo-600 hover:text-indigo-600 justify-self-end cursor-pointer">Libros
+                </a>
+                <a href="/src/view/libros.html"
+                    class="font-medium text-indigo-600 hover:text-indigo-600 justify-self-end cursor-pointer">Mis libros
+                </a>
+                <a href="/src/view/autores.html"
+                    class="font-medium text-indigo-600 hover:text-indigo-600 justify-self-end cursor-pointer">Autores
+                </a>
 
-                <a href="/src/view/login.html" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+                <button id="btn-logout"
+                    class="font-medium text-red-600 hover:text-red-500 justify-self-end cursor-pointer">Logout </button>
             </div>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto pt-6">
-        <h1 class="text-3xl tracking-tight font-extrabold text-gray-900">
-            <span class="block inline">Autor: Dereck</span>
-        </h1>
-        <div class="my-4 text-gray-600">
-            <a><i class="fas fa-at"></i> dereck@gmail.com</a>
-            <div><i class="fas fa-phone-alt"></i> 12345646</div>
-            
-            <p class="mt-4">Biografia:
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-        </div>
+    <div class="max-w-7xl mx-auto pt-6 px-8" id="content-autor">
     </div>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../js/autor.js"></script>
+    <script type="module" src="../js/autor.js"></script>
 </body>
 
 </html>
