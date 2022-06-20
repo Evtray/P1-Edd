@@ -46,6 +46,7 @@ if (librosStorage) {
     listaAutores.insertar(nuevoAutor);
   }
 }
+
 function search() {
   var value = document.getElementById("input-search").value;
   var ser = listaAutores.BuscarporNombre(value);
@@ -66,7 +67,7 @@ function getAutores() {
     actual = actual.siguiente;
     console.log(actual.autor);
     stringLibros += `
-    <a href="/src/view/autor.html" class="my-4">
+    <a href="/src/view/autor.html?nombre=${actual.autor.nombre_autor}" class="my-4">
         <div class="shadow rounded-md overflow-hidden h-56 w-48">
             <div class=" bg-gray-50">
                 <img class="h-40 w-full"
@@ -75,8 +76,7 @@ function getAutores() {
 
             </div>
             <div class="p-2 px-4">
-                <span class="text-sm text-gray-600">Autor: ${actual.autor.nombre_autor}</span><br>
-                <span class="text-sm text-gray-600">Correo: ${actual.autor.correo}</span>
+                <span class="text-sm text-gray-600"><span class="font-semibold">Autor</span>: ${actual.autor.nombre_autor}</span><br>
             </div>
         </div>
     </a>

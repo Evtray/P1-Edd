@@ -65,10 +65,23 @@ export class libros {
 
     window.localStorage.setItem("cola", libros);
   }
+  cantidadLibros() {
+    var cantidad = 0;
+    var actual = this.cabeza;
+    for (let index = 0; index < this.contador; index++) {
+      actual = actual.siguiente;
+      cantidad += actual.libro.cantidad;
+    }
+    return cantidad;
+  }
   ordenarAlfa() {
     for (let i = 0; i < this.contador + 1; i++) {
       var actualNuevo = this.cabeza;
       for (let j = 0; j < this.contador; j++) {
+        console.log(
+          actualNuevo.libro.nombre_libro,
+          actualNuevo.siguiente.libro.nombre_libro
+        );
         if (
           actualNuevo.siguiente != null &&
           actualNuevo.libro.nombre_libro >
@@ -78,9 +91,9 @@ export class libros {
           var nodoJ2 = actualNuevo.siguiente.libro;
           actualNuevo.libro = nodoJ2;
           actualNuevo.siguiente.libro = nodoJ;
+        } else {
+          actualNuevo = actualNuevo.siguiente;
         }
-        actualNuevo = actualNuevo.siguiente;
-        console.log(actualNuevo);
       }
     }
   }
@@ -97,8 +110,9 @@ export class libros {
           var nodoJ2 = actualNuevo.siguiente.libro;
           actualNuevo.libro = nodoJ2;
           actualNuevo.siguiente.libro = nodoJ;
+        } else {
+          actualNuevo = actualNuevo.siguiente;
         }
-        actualNuevo = actualNuevo.siguiente;
       }
     }
   }

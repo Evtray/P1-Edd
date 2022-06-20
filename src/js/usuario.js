@@ -11,6 +11,24 @@ document.getElementById("btn-logout").addEventListener(
   },
   false
 );
+document.getElementById("btn-descendente").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    listaLibros.ordenarInAlfa();
+    getLibros();
+  },
+  false
+);
+document.getElementById("btn-ascendente").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    listaLibros.ordenarAlfa();
+    getLibros();
+  },
+  false
+);
 
 function logout() {
   localStorage.removeItem("user");
@@ -42,7 +60,7 @@ if (librosStorage) {
     listaLibros.insertar(nuevoLibro);
   }
 }
-listaLibros.ordenarAlfa();
+
 var librosStorage = JSON.parse(window.localStorage.getItem("user-libros"));
 
 if (librosStorage) {
@@ -60,6 +78,7 @@ if (librosStorage) {
     listaLibrosUsuario.insertar(nuevoLibro);
   }
 }
+
 function getLibros() {
   var actual = listaLibros.cabeza;
   var stringLibros = "";

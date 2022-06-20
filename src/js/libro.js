@@ -168,6 +168,8 @@ function comprar() {
     }
 
     listaLibros.recorrer();
+
+    
     var actualUsuario = listaUsuarios.cabeza;
     for (let index = 0; index < listaUsuarios.contador; index++) {
       actualUsuario = actualUsuario.siguiente;
